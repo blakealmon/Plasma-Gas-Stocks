@@ -77,9 +77,6 @@ public class Camera extends JFrame{
 		
 		
 		ImageIcon icon;
-		
-		
-		// Processing loop
 		while(true) {
 			//read image to matrix
 			capture.read(image);
@@ -114,48 +111,33 @@ public class Camera extends JFrame{
 //		
 			
 			
-			/// Main code to process the data
-			
-			
 		
-			//DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss:SSS");  
+			//DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 			 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ss");  
-			 LocalDateTime now = LocalDateTime.now();  
-			 
-			 System.out.println(dtf.format(now));  
+			   LocalDateTime now = LocalDateTime.now();  
+			   //System.out.println(dtf.format(now));  
+			   //System.out.println(dtf.format(now)); 
 			   
-			      
+			   
 			  if( (Integer.parseInt(dtf.format(now)) == 0)  && (flag == false)){
 				   flag = true;
 			   }
 					   
 			   
-			  
-			  // Check to see if the timer is zero 
-			  // also to make sure this is only called once
 			   if ((flag == true) && (flag2 == false)) {
-				   
-				   // Executing the trade here   
 				   System.out.println("1 trade");
-				   
-				   // Creates a new Alpaca object
 				   Alpaca.API myApi = new Alpaca.API();
 				
-				   // API Call uses try/catch block to catch any exceptions
-				   // instead of crashing the program
-				   try { myApi.callApi(null);} 
-				   catch (IOException e) {
-					   		// TODO Auto-generated catch block
-					   		e.printStackTrace();
-				   			}
-				   
-				   // Reset flag after trading to make sure the program
-				   // knows that the trade has been executed
+				try {
+					myApi.callApi(null);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				   flag2 = true;
-				 	   
+				 //  clicked = false;
+				   
 			   }
-			   
-			   // Resets the flags once the timer hits 1
 			   if(Integer.parseInt(dtf.format(now)) == 1) {
 				   
 				   flag = false;
@@ -172,8 +154,6 @@ public class Camera extends JFrame{
 		}
 	}
 	
-	
-	// Main starts the camera and runs the processing loop
 	public static void main(String[] args) {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		EventQueue.invokeLater(new Runnable() {
@@ -186,7 +166,6 @@ public class Camera extends JFrame{
 					
 					@Override
 					public void run() {
-						// Begin camera processing loop
 					  camera.startCamera();
 					}
 					
