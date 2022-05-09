@@ -97,22 +97,22 @@ public class Camera extends JFrame{
 			icon = new ImageIcon(imageData);
 			cameraScreen.setIcon(icon);
 			
-//			//capture and save to file
-//			
-//				if(clicked) {
-//				//prompt for enter image name
-//				String name = JOptionPane.showInputDialog(this,"Enter image name" );
-//				if(name == null) {
-//					name = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss").format(new Date());
-////					
-//				}
-//				//write to file
-//				Imgcodecs.imwrite("images/" + name + ".jpg", image);
-//			
-//				clicked = false;
-//			}
+			//capture and save to file
+			
+				if(clicked) {
+				//prompt for enter image name
+				String name = JOptionPane.showInputDialog(this,"Enter image name" );
+				if(name == null) {
+					name = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss").format(new Date());
+//					
+				}
+				//write to file
+				Imgcodecs.imwrite("images/" + name + ".jpg", image);
+			
+				clicked = false;
+			}
 		
-			 
+			
 			
 			/// Main code to process the data
 			
