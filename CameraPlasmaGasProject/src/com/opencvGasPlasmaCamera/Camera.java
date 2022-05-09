@@ -1,24 +1,26 @@
 package com.opencvGasPlasmaCamera;
 
+import Alpaca.API;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.awt.Dimension;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.videoio.VideoCapture;
+import org.opencv.videoio.VideoCapture;   
+
 
 public class Camera extends JFrame{
 
@@ -32,6 +34,8 @@ public class Camera extends JFrame{
 	private Mat image;
 
 	private boolean clicked = false;
+	private boolean flag = false;
+	private boolean flag2 = false;
 	
 	public Camera(){
 		
@@ -72,12 +76,6 @@ public class Camera extends JFrame{
 		byte[] imageData;
 		
 		
-		
-		
-		
-		
-		
-		
 		ImageIcon icon;
 		while(true) {
 			//read image to matrix
@@ -97,19 +95,62 @@ public class Camera extends JFrame{
 			cameraScreen.setIcon(icon);
 			
 			//capture and save to file
-			if(clicked) {
-				//prompt for enter image name
-				String name = JOptionPane.showInputDialog(this,"Enter image name" );
-				if(name == null) {
-					name = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss").format(new Date());
-					
-				}
-				//write to file
-				Imgcodecs.imwrite("images/" + name + ".jpg", image);
+//			
+//				if(clicked) {
+//				//prompt for enter image name
+//				String name = JOptionPane.showInputDialog(this,"Enter image name" );
+//				if(name == null) {
+//					name = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss").format(new Date());
+//					
+//				}
+//				//write to file
+//				Imgcodecs.imwrite("images/" + name + ".jpg", image);
+//			
+//				clicked = false;
+//			}
+//		
 			
-				clicked = false;
-			}
+			
 		
+			//DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+			 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ss");  
+			   LocalDateTime now = LocalDateTime.now();  
+			   //System.out.println(dtf.format(now));  
+			   //System.out.println(dtf.format(now)); 
+			   
+			   
+			  if( (Integer.parseInt(dtf.format(now)) == 0)  && (flag == false)){
+				   flag = true;
+			   }
+					   
+			   
+			   if ((flag == true) && (flag2 == false)) {
+				   System.out.println("1 trade");
+				   Alpaca.API myApi = new Alpaca.API();
+				
+				try {
+					myApi.callApi(null);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				   flag2 = true;
+				 //  clicked = false;
+				   
+			   }
+			   if(Integer.parseInt(dtf.format(now)) == 1) {
+				   
+				   flag = false;
+				   flag2 = false;
+			   }
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
 		}
 	}
 	
@@ -125,7 +166,7 @@ public class Camera extends JFrame{
 					
 					@Override
 					public void run() {
-						camera.startCamera();
+					  camera.startCamera();
 					}
 					
 					

@@ -1,0 +1,37 @@
+package Main;
+
+import java.awt.EventQueue;
+
+import org.opencv.core.Core;
+
+import com.opencvGasPlasmaCamera.*;
+
+
+public class Master {
+	public static void main(String[] args) {
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		EventQueue.invokeLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				Camera mycamera = new Camera();
+				//start camera in thread
+				new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						mycamera.startCamera();
+					}
+					
+					
+				}).start();
+			}
+			
+		
+		});
+				
+				
+		
+		
+	}
+}
