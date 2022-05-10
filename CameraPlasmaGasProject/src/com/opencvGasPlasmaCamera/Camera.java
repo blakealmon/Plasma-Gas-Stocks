@@ -1,6 +1,7 @@
 package com.opencvGasPlasmaCamera;
 
-import Alpaca.API;
+//import Alpaca.API;
+//import AlgorithmForMachineLearning.Algorithm;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -78,7 +79,10 @@ public class Camera extends JFrame{
 		
 		ImageIcon icon;
 		
-		
+		// Creates a new Alpaca object
+		   Alpaca.API myApi = new Alpaca.API();
+		   AlgorithmForMachineLearning.Algorithm myAlgorithm = new AlgorithmForMachineLearning.Algorithm();
+		   
 		// Processing loop
 		while(true) {
 			//read image to matrix
@@ -119,14 +123,19 @@ public class Camera extends JFrame{
 			
 		
 			//DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss:SSS");  
-			 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ss");  
+			 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("SSS");  
 			 LocalDateTime now = LocalDateTime.now();  
-			 
 			// System.out.println(dtf.format(now));  
-			   
-			      
-			  if( (Integer.parseInt(dtf.format(now)) == 0)  && (flag == false)){
+			 
+			 
+			 int timer = (Integer.parseInt(dtf.format(now))%100);
+			 //System.out.println(timer);  
+			 
+			  
+			  if((timer == 0)   && (flag == false)){
 				   flag = true;
+				  
+						   
 			   }
 					   
 			   
@@ -135,20 +144,42 @@ public class Camera extends JFrame{
 			  // also to make sure this is only called once
 			   if ((flag == true) && (flag2 == false)) {
 				   
-				   // Executing the trade here   
-				   System.out.println("1 trade");
+				   //Alpaca.API myAlpaca = new Alpaca.API();
+				   //boolean result2 = myAlgorithm.processImage(imageData);
+				   boolean result2 = true;
 				   
-				   // Creates a new Alpaca object
-				   Alpaca.API myApi = new Alpaca.API();
-				
-				   // API Call uses try/catch block to catch any exceptions
-				   // instead of crashing the program
-				   try { myApi.callApi(null);} 
-				   catch (IOException e) {
-					   		// TODO Auto-generated catch block
-					   		e.printStackTrace();
-				   			}
+				   //System.out.println(result2);
 				   
+				   if(result2) {
+					// Executing the trade here   
+					   System.out.println("1 trade");
+					   
+					   
+					   
+					   // API Call uses try/catch block to catch any exceptions
+					   // instead of crashing the program
+					   
+					   try { 
+						
+						   //myAlpaca.test3("https://www.google.com","{:}");
+						   myApi.test3("https://www.google.com");
+						   
+						   
+						   
+						   //myApi.callApi(null);
+						   
+					   
+					   } 
+					   
+					   catch (IOException e) {
+						   		// TODO Auto-generated catch block
+						   		e.printStackTrace();
+					   			}
+					   
+				   }
+				   
+				   
+				   		
 				   // Reset flag after trading to make sure the program
 				   // knows that the trade has been executed
 				   flag2 = true;
@@ -156,7 +187,7 @@ public class Camera extends JFrame{
 			   }
 			   
 			   // Resets the flags once the timer hits 1
-			   if(Integer.parseInt(dtf.format(now)) == 1) {
+			   if(timer != 0) {
 				   
 				   flag = false;
 				   flag2 = false;

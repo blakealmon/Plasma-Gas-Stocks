@@ -1,0 +1,28 @@
+
+package AlgorithmForMachineLearning;
+
+
+public class Algorithm {
+
+	public boolean processImage(byte[] test){
+		
+		boolean results = false;
+		
+		
+		
+		
+		
+		
+		
+		//machine learning goes here
+		
+		
+		
+		
+		
+		
+		return results;
+		
+	}
+
+}

@@ -1,0 +1,33 @@
+
+package AlgorithmForMachineLearning;
+
+import com.opencvGasPlasmaCamera.*;
+
+public class Algorithm {
+
+	public boolean processImage(byte[] test){
+		
+		boolean results = false;
+		
+		
+		
+		
+		
+		
+		
+		//machine learning goes here
+		
+		
+		
+		
+		
+		if(results = true) {
+			
+			
+		}
+		return results;
+		
+	}
+	
+
+}
