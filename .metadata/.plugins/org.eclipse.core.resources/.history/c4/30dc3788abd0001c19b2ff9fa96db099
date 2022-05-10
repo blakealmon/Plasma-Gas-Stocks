@@ -25,13 +25,6 @@ String Stock2;
 		
 		//machine learning goes here
 		
-		
-		
-																																																																																																														
-		
-		
-		
-		
 		if (results) {
 			return Stock1;
 		}

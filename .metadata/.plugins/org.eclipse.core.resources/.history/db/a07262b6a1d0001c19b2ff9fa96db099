@@ -96,8 +96,8 @@ public class API {
     	  httpURLConnection.setRequestMethod("GET");
     	  httpURLConnection.setRequestProperty("Content-Type", "application/json");
     	  
-    	  httpURLConnection.setRequestProperty("AlPACA_API_KEY_ID", "PK1S2E1TEW8KCH46AUKV");
-    	  httpURLConnection.setRequestProperty("ALPACA_API_SECRET_KEY", "zENMuEt0i7VwpUr0soNiEQ9eFlajbV3xI3QDoTxf");
+    	  httpURLConnection.setRequestProperty("APCA-API-KEY-ID", "PK1S2E1TEW8KCH46AUKV");
+    	  httpURLConnection.setRequestProperty("APCA-API-SECRET-KEY", "zENMuEt0i7VwpUr0soNiEQ9eFlajbV3xI3QDoTxf");
     	  
     	  
     	  //try (OutputStream outputStream = httpURLConnection.getOutputStream()) { 
