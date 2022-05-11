@@ -87,17 +87,26 @@ public class API {
     }
     
     //public void test3(String urlStr, String jsonBodyStr) throws IOException {
-      public void test3(String urlStr) throws IOException {
-    
-    	  URL url = new URL("https://paper-api.alpaca.markets/v2/positions");
-    	 // URL url = new URL("https://www.google.com");
+      public void alpacaCommand(String command, String param1, String param2, String param3) throws IOException {
+    	 
+    	  
+    	  
+    	  
+    	  
+    	  String endpoint = "";
+    	  if(command == "GetPositions") {endpoint = "positions";}
+    	  if(command == "Order") {endpoint = "/orders";}
+    	  
+    	  
+    	  URL url = new URL("https://paper-api.alpaca.markets/v2/" + endpoint);
+    	//  URL url = new URL("https://www.google.com");
     	  HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
     	  httpURLConnection.setDoOutput(true);
     	  httpURLConnection.setRequestMethod("GET");
     	  httpURLConnection.setRequestProperty("Content-Type", "application/json");
     	  
-    	  httpURLConnection.setRequestProperty("AlPACA_API_KEY_ID", "PK1S2E1TEW8KCH46AUKV");
-    	  httpURLConnection.setRequestProperty("ALPACA_API_SECRET_KEY", "zENMuEt0i7VwpUr0soNiEQ9eFlajbV3xI3QDoTxf");
+    	  httpURLConnection.setRequestProperty("APCA-API-KEY-ID", "PK1S2E1TEW8KCH46AUKV");
+    	  httpURLConnection.setRequestProperty("APCA-API-SECRET-KEY", "zENMuEt0i7VwpUr0soNiEQ9eFlajbV3xI3QDoTxf");
     	  
     	  
     	  //try (OutputStream outputStream = httpURLConnection.getOutputStream()) { 
@@ -112,7 +121,9 @@ public class API {
     	      }
     	    }
     	  } else {
-    	    System.out.println(httpURLConnection.getResponseCode());
+    		 int result = httpURLConnection.getResponseCode();
+    		  
+    	    System.out.println(result);
     	  }
     	}
       

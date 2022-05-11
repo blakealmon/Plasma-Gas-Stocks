@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
     <fullyQualifiedTypeName name="org.opencv.videoio.VideoCapture"/>
-    <fullyQualifiedTypeName name="org.opencv.core.Mat"/>
     <fullyQualifiedTypeName name="org.opencv.core.MatOfByte"/>
     <fullyQualifiedTypeName name="org.opencv.imgcodecs.Imgcodecs"/>
     <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
@@ -17,4 +16,9 @@
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.opencvGasPlasmaCamera.Camera"/>
+    <fullyQualifiedTypeName name="AlgorithmForMachineLearning.Algorithm"/>
+    <fullyQualifiedTypeName name="Alpaca.API"/>
+    <fullyQualifiedTypeName name="java.io.OutputStream"/>
+    <fullyQualifiedTypeName name="org.opencv.core.Mat"/>
 </qualifiedTypeNameHistroy>

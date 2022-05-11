@@ -20,8 +20,9 @@ import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.videoio.VideoCapture;   
-
+import org.opencv.videoio.VideoCapture; 
+import org.opencv.core.*;
+import org.opencv.*;
 
 public class Camera extends JFrame{
 
@@ -73,7 +74,11 @@ public class Camera extends JFrame{
 	//create camera
 	public void startCamera() {
 		capture = new VideoCapture(0);
+		
+
+		
 		image = new Mat();
+
 		byte[] imageData;
 		
 		
@@ -88,18 +93,32 @@ public class Camera extends JFrame{
 			//read image to matrix
 			capture.read(image);
 			
-			
+//			System.out.println("width : " + image.width());
+//			System.out.println("channels : " + image.channels());
+//			System.out.println("height : " + image.height());
+//
+//			
+//			
+//			
+//			System.out.println("R : " + temp[2]);
+//			System.out.println("B : " + temp[0]);
+//			System.out.println("G : " + temp[1]);
 			
 			
 			
 			//convert matrix to byte
 			final MatOfByte buf  = new MatOfByte();
 			Imgcodecs.imencode(".jpg", image, buf);
-			
+		//	System.out.println(buf);
 			imageData = buf.toArray();
 			//add to JLabel
 			icon = new ImageIcon(imageData);
 			cameraScreen.setIcon(icon);
+			
+			
+			
+			
+			
 			
 //			//capture and save to file
 //			
@@ -108,7 +127,7 @@ public class Camera extends JFrame{
 //				String name = JOptionPane.showInputDialog(this,"Enter image name" );
 //				if(name == null) {
 //					name = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss").format(new Date());
-////					
+//					
 //				}
 //				//write to file
 //				Imgcodecs.imwrite("images/" + name + ".jpg", image);
@@ -144,15 +163,15 @@ public class Camera extends JFrame{
 			  // also to make sure this is only called once
 			   if ((flag == true) && (flag2 == false)) {
 				   
-				   //Alpaca.API myAlpaca = new Alpaca.API();
-				   //boolean result2 = myAlgorithm.processImage(imageData);
-				   boolean result2 = true;
 				   
-				   //System.out.println(result2);
+				   String theStock = myAlgorithm.processImage(image, "AAPL","TSLA");
+		//		   boolean result2 = true;
 				   
-				   if(result2) {
+				   System.out.println(theStock);
+				   
+				   if(true) {
 					// Executing the trade here   
-					   System.out.println("1 trade");
+					  //a System.out.println("1 trade");
 					   
 					   
 					   
@@ -160,13 +179,14 @@ public class Camera extends JFrame{
 					   // instead of crashing the program
 					   
 					   try { 
-						
+						   Alpaca.API myAlpaca = new Alpaca.API();
 						   //myAlpaca.test3("https://www.google.com","{:}");
-						   myApi.test3("https://www.google.com");
+						   myApi.alpacaCommand("GetPositions", "", "", "");
+						   myApi.alpacaCommand("Buy", "100", "TSLA", "");
 						   
+						   System.out.println();
 						   
-						   
-						   //myApi.callApi(null);
+						  
 						   
 					   
 					   } 
