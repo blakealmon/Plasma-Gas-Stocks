@@ -43,10 +43,10 @@ String Stock2;
 			
 				double[] temp2 = {0,0,0};
 				temp2 = image.get(j, i);
-//				System.out.println("Location: "+i + "," + j);
-//				System.out.println(temp2[0]);
-//				System.out.println(temp2[1]);
-//				System.out.println(temp2[2]);
+				System.out.println("Location: "+i + "," + j);
+				System.out.println(temp2[0]);
+				System.out.println(temp2[1]);
+				System.out.println(temp2[2]);
 				
 				rightCounter += (temp2[0]+temp2[1]+temp2[2]);
 				
@@ -71,4 +71,9 @@ String Stock2;
 		
 	}
 	
+	
+	
+	
+	
+
 }

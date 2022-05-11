@@ -1,5 +1,8 @@
 package com.opencvGasPlasmaCamera;
 
+//imports from other packages
+
+
 //import Alpaca.API;
 //import AlgorithmForMachineLearning.Algorithm;
 
@@ -147,7 +150,7 @@ public class Camera extends JFrame{
 			// System.out.println(dtf.format(now));  
 			 
 			 
-			 int timer = (Integer.parseInt(dtf.format(now))%5);
+			 int timer = (Integer.parseInt(dtf.format(now)));
 			 //System.out.println(timer);  
 			 
 			  
