@@ -26,7 +26,7 @@ public class API {
     	URL urlObj = new URL("https://www.google.com");
     	HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
  //   	connection.setRequestMethod(method.toUpperCase());
- //  	connection.setRequestProperty("Authorization", "BASIC "+new String(encodedBase64));
+  //  	connection.setRequestProperty("Authorization", "BASIC "+new String(encodedBase64));
     	connection.setRequestProperty("Content-Type", "application/json");
     	connection.setRequestProperty("Accept", "application/json");
     	connection.setRequestProperty("Accept-Charset", "UTF-8");

@@ -150,7 +150,7 @@ public class Camera extends JFrame{
 			// System.out.println(dtf.format(now));  
 			 
 			 
-			 int timer = (Integer.parseInt(dtf.format(now))%5	);
+			 int timer = (Integer.parseInt(dtf.format(now))%5);
 			 //System.out.println(timer);  
 			 
 			  
@@ -214,15 +214,8 @@ public class Camera extends JFrame{
 				   
 				   flag = false;
 				   flag2 = false;
-			   }
-			   
-			   
-			   
-			   
-			   
-			   
-			   
-			   
+			   }			   
+			  
 		}
 	}
 	
@@ -251,9 +244,6 @@ public class Camera extends JFrame{
 		
 		});
 				
-				
-		
-		
 	}
 
 }
