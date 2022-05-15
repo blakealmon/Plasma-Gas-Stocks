@@ -1,7 +1,9 @@
 package AlgorithmForMachineLearning;
 
 public class stockRandomizer {
-
+	boolean Smooth = false;
+	boolean Cold = false;
+	boolean Round = false;
 	public static void stock1Randomizer() {
 			
 		String[] stock1List = {}; 
@@ -17,6 +19,8 @@ public class stockRandomizer {
 		
 		String picker2 = "TSLA";
 	}
+	
+	
 	
 	
 }

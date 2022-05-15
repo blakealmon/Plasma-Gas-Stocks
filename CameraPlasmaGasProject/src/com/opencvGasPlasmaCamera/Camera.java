@@ -44,6 +44,7 @@ public class Camera extends JFrame{
 	
 	public Camera(){
 		
+		
 		//design ui
 		setLayout(null);
 		cameraScreen = new JLabel();
@@ -101,6 +102,7 @@ public class Camera extends JFrame{
 //			System.out.println("height : " + image.height());
 //
 //			
+			
 //			
 //			
 //			System.out.println("R : " + temp[2]);
