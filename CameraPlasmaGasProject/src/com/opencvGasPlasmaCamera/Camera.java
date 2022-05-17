@@ -184,10 +184,13 @@ public class Camera extends JFrame{
 					   // instead of crashing the program
 					   
 					   try { 
+						   
 						   Alpaca.API myAlpaca = new Alpaca.API();
 						   //myAlpaca.test3("https://www.google.com","{:}");
 						   myApi.alpacaCommand("GetPositions", "", "", "");
-						   myApi.alpacaCommand("Buy", "100", "TSLA", "");
+						   myApi.alpacaCommand("PlaceOrder", "", "", "");
+						   
+						 //  myApi.alpacaCommand("Buy", "100", "TSLA", "");
 						   
 						   System.out.println();
 						   

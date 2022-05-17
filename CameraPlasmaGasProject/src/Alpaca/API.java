@@ -87,16 +87,60 @@ public class API {
     }
     
     //public void test3(String urlStr, String jsonBodyStr) throws IOException {
-      public void alpacaCommand(String command, String param1, String param2, String param3) throws IOException {
+      public void alpacaCommand(String command, String param1, String param2, String param3) throws IOException 
+      {
     	 
     	  
-    	  
-    	  
-    	  
     	  String endpoint = "";
-    	  if(command == "GetPositions") {endpoint = "positions";}
-    	  if(command == "Order") {endpoint = "/orders";}
     	  
+    	  if(command == "PlaceOrder") {endpoint = "orders";
+    	  
+    	  
+    	  String params = "symbol=TWTR&limit_price=2.22&notional=&qty=2&side=buy&stop_price=&time_in_force=gtc&trail_percent=&trail_price=&type=market";
+
+    	  endpoint = endpoint + "?" + params; 
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  URL url = new URL("https://paper-api.alpaca.markets/v2/" + endpoint);
+    	  System.out.println(url);
+    	//  URL url = new URL("https://www.google.com");
+    	  HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+    	  httpURLConnection.setDoOutput(true);
+    	  httpURLConnection.setRequestMethod("GET");
+    	  httpURLConnection.setRequestProperty("Content-Type", "application/json");
+    	  
+    	  httpURLConnection.setRequestProperty("APCA-API-KEY-ID", "PK1S2E1TEW8KCH46AUKV");
+    	  httpURLConnection.setRequestProperty("APCA-API-SECRET-KEY", "zENMuEt0i7VwpUr0soNiEQ9eFlajbV3xI3QDoTxf");
+    	  
+    	  
+    	  
+    	  //try (OutputStream outputStream = httpURLConnection.getOutputStream()) { 
+    	  // outputStream.write(jsonBodyStr.getBytes());
+    	  // outputStream.flush();
+    	  //}
+    	  if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+    	    try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()))) {
+    	      String line;
+    	      while ((line = bufferedReader.readLine()) != null) {
+    	    	  System.out.println(line);
+    	      }
+    	    }
+    	  } else {
+    		 int result = httpURLConnection.getResponseCode();
+    		  
+    	    System.out.println(result);
+    	  }
+    	}
+      
+    	  
+    	  
+    	  if(command == "GetPositions") {
+    		
+    		  endpoint = "positions";
     	  
     	  URL url = new URL("https://paper-api.alpaca.markets/v2/" + endpoint);
     	//  URL url = new URL("https://www.google.com");
@@ -126,8 +170,7 @@ public class API {
     	    System.out.println(result);
     	  }
     	}
-      
-      
+      }  
 
-    
 }
+      
