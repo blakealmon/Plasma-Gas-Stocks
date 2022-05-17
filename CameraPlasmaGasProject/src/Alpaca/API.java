@@ -110,7 +110,7 @@ public class API {
     	//  URL url = new URL("https://www.google.com");
     	  HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
     	  httpURLConnection.setDoOutput(true);
-    	  httpURLConnection.setRequestMethod("GET");
+    	  httpURLConnection.setRequestMethod("PUT");
     	  httpURLConnection.setRequestProperty("Content-Type", "application/json");
     	  
     	  httpURLConnection.setRequestProperty("APCA-API-KEY-ID", "PK1S2E1TEW8KCH46AUKV");
