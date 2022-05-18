@@ -21,4 +21,5 @@
     <fullyQualifiedTypeName name="Alpaca.API"/>
     <fullyQualifiedTypeName name="java.io.OutputStream"/>
     <fullyQualifiedTypeName name="org.opencv.core.Mat"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
 </qualifiedTypeNameHistroy>
