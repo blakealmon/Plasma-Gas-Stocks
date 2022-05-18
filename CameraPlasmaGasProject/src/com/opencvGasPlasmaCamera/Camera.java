@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -183,11 +184,25 @@ public class Camera extends JFrame{
 					   // API Call uses try/catch block to catch any exceptions
 					   // instead of crashing the program
 					   
+					   
+					   
+					   //sleep
+					   try {
+							TimeUnit.SECONDS.sleep(1);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					   
+					   
 					   try { 
+						   
+						   
+						   
 						   
 						   Alpaca.API myAlpaca = new Alpaca.API();
 						   //myAlpaca.test3("https://www.google.com","{:}");
-						   myApi.alpacaCommand("GetPositions", "", "", "");
+						   //myApi.alpacaCommand("GetPositions", "", "", "");
 						   myApi.alpacaCommand("PlaceOrder", "", "", "");
 						   
 						 //  myApi.alpacaCommand("Buy", "100", "TSLA", "");

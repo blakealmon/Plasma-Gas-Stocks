@@ -1,6 +1,7 @@
 package Alpaca;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import java.net.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -94,34 +95,27 @@ public class API {
     	  String endpoint = "";
     	  
     	  if(command == "PlaceOrder") {endpoint = "orders";
-    	  
-    	  
-    	  String params = "symbol=TWTR&limit_price=2.22&notional=&qty=2&side=buy&stop_price=&time_in_force=gtc&trail_percent=&trail_price=&type=market";
-
-    	  endpoint = endpoint + "?" + params; 
-    	  
-    	  
-    	  
-    	  
-    	  
+    	   
     	  
     	  URL url = new URL("https://paper-api.alpaca.markets/v2/" + endpoint);
     	  System.out.println(url);
-    	//  URL url = new URL("https://www.google.com");
+    	
+    	  //  URL url = new URL("https://www.google.com");
     	  HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
     	  httpURLConnection.setDoOutput(true);
-    	  httpURLConnection.setRequestMethod("PUT");
+    	  httpURLConnection.setRequestMethod("POST");
     	  httpURLConnection.setRequestProperty("Content-Type", "application/json");
     	  
     	  httpURLConnection.setRequestProperty("APCA-API-KEY-ID", "PK1S2E1TEW8KCH46AUKV");
     	  httpURLConnection.setRequestProperty("APCA-API-SECRET-KEY", "zENMuEt0i7VwpUr0soNiEQ9eFlajbV3xI3QDoTxf");
     	  
-    	  
-    	  
-    	  //try (OutputStream outputStream = httpURLConnection.getOutputStream()) { 
-    	  // outputStream.write(jsonBodyStr.getBytes());
-    	  // outputStream.flush();
-    	  //}
+    	 String jsonBodyStr = "{\"symbol\":\"TWTR\", \"qty\":\"2\", \"side\":\"buy\",\"type\":\"market\", \"time_in_force\":\"gtc\"}";
+    	 System.out.println(jsonBodyStr); 
+   	  
+    	  try (OutputStream outputStream = httpURLConnection.getOutputStream()) { 
+    	   outputStream.write(jsonBodyStr.getBytes());
+    	   outputStream.flush();
+    	  }
     	  if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
     	    try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()))) {
     	      String line;
