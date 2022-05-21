@@ -2,6 +2,7 @@
 package AlgorithmForMachineLearning;
 import org.opencv.*;
 import org.opencv.core.Mat;
+import java.util.Random;
 
 public class Algorithm {
 String Stock1;
