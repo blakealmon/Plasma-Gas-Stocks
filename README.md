@@ -19,5 +19,10 @@ The final touch was to print out the stock that was traded and both color codes 
 There are also a couple packages with ML Code that I tryed to understand that have nothing to do with the program.
 
 
+The main idea on this program is to use a plasma ball to see what stock/stocks the program decides based off it. In addition to the plasma ball, I have two vials of 
+inert gas, argon and neon which I used to create more light.
+
+
+
 
 
