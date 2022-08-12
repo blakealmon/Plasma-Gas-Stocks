@@ -16,3 +16,8 @@ The API that I use to trade a stock in real time is call Alpaca API.
 The final touch was to print out the stock that was traded and both color codes of each side of the image.
 
 
+There are also a couple packages with ML Code that I tryed to understand that have nothing to do with the program.
+
+
+
+
